@@ -38,6 +38,7 @@
         <th scope="col">Student ID</th>
         <th scope="col">First</th>
         <th scope="col">Last</th>
+        <th scope="col">Gender</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Actions</th>
@@ -50,6 +51,7 @@
         <td class="">{{ $student->id }}</td>
         <td>{{ $student->fname }}</td>
         <td>{{ $student->lname }}</td>
+        <td>{{ $student->gender }}</td>
         <td>{{ $student->email }}</td>
         <td>{{ $student->phone }}</td>
         <td> <a href="{{ route('students.edit', $student->id) }}"

@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('lname');
             $table->string('email')->unique();
             $table->string('phone');
+            $table->enum('gender', ['Male', 'Female', 'LGBTQ', 'N/A']);
             $table->timestamps();
         });
         

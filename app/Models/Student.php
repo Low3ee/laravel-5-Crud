@@ -10,6 +10,7 @@ class Student extends Model
         'fname',
         'lname',
         'email',
+        'gender',
         'phone',
       ];
 }

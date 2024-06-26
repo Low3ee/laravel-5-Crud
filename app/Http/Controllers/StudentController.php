@@ -28,7 +28,8 @@ class StudentController extends Controller
         $this->validate($request, [
             'fname' => 'required',
             'lname' => 'required',
-            'email' => 'required|email', 
+            'email' => 'required|email',
+            'gender' => 'required',
             'phone' => 'required|numeric'
         ]);
 

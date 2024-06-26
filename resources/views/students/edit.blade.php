@@ -28,6 +28,18 @@
                   value="{{ $student->lname }}" required>
               </div>
               <div class="form-group">
+
+                <label for="gender">Gender</label>
+
+                <select name="genders" id="genders">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="LGBTQ+">LGBTQ</option>
+                  <option value="N/A">Prefer Not To Say</option>
+                </select>
+              </div>
+             
+              <div class="form-group">
                 <label for="phone">Phone</label>
                 <input type="text" class="form-control" id="phone" name="phone"
                   value="{{ $student->phone }}" required>
