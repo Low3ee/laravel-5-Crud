@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 use Validator;
 
@@ -11,7 +12,12 @@ class StudentController extends Controller
     // Display a listing of the resource.
     public function index()
     {
-        $students = Student::paginate(10);
+        $perPage = 5;
+
+        $students = DB::table('students')
+            ->join('genders', 'students.gender', '=', 'genders.id')
+            ->select('students.*', 'genders.description AS gender_d')
+            ->paginate($perPage);
         return view('students.index', compact('students'));
     }
 
@@ -21,7 +27,6 @@ class StudentController extends Controller
         return view('students.create');
     }
 
-    // Store a newly created resource in storage.
     public function store(Request $request)
     {
         // Validate the incoming request data
@@ -62,10 +67,11 @@ class StudentController extends Controller
         $this->validate($request, [
             'fname' => 'required|max:255',
             'lname' => 'required|max:255',
+            'gender' => 'required',
             'email' => 'required|email',
             'phone' => 'required|numeric'
         ]);
-
+        
         // Find student id and update it
         $student = Student::find($id);
         $student->update($request->all());

@@ -51,7 +51,7 @@
         <td class="">{{ $student->id }}</td>
         <td>{{ $student->fname }}</td>
         <td>{{ $student->lname }}</td>
-        <td>{{ $student->gender }}</td>
+        <td>{{ $student->gender_d }}</td>
         <td>{{ $student->email }}</td>
         <td>{{ $student->phone }}</td>
         <td> <a href="{{ route('students.edit', $student->id) }}"

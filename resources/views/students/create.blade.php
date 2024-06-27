@@ -37,10 +37,10 @@
                 <div class="form-group">
                   <label for="gender">Gender</label>
                   <select class="form-control" name="gender" id="gender">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="LGBTQ">LGBTQ+</option>
-                      <option value="N/A">Prefer Not To Say</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                      <option value="3">LGBTQ+</option>
+                      <option value="4">Prefer Not To Say</option>
                   </select>
               </div>
               <div class="form-group">

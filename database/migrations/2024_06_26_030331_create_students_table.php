@@ -13,17 +13,27 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
+         // Create genders table
+         Schema::create('genders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('description');
+            $table->timestamps();
+        });
+
+        // Create students table
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->string('fname');
             $table->string('lname');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->enum('gender', ['Male', 'Female', 'LGBTQ', 'N/A']);
+            $table->integer('gender');
             $table->timestamps();
+            
+            $table->foreign('gender')->references('id')->on('genders');
         });
         
-    }
+}
 
     /**
      * Reverse the migrations.
