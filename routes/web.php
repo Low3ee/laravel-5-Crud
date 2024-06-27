@@ -13,6 +13,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
+Route::get('/std', 'StudentController@ajaxDisplay')->name('students.ajaxrq');
 // returns the home page with all students
 Route::get('/', 'StudentController@index')->name('students.index');
 // returns the form for adding a student

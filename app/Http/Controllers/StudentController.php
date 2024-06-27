@@ -9,6 +9,16 @@ use Validator;
 
 class StudentController extends Controller
 {
+
+    public function ajaxDisplay()
+    {
+        $students = DB::table('students')
+            ->join('genders', 'students.gender', '=', 'genders.id')
+            ->select('students.*', 'genders.description AS gender_d')
+            ->paginate(5);
+            // dd($students);
+        return response()->json($students, 200);
+    }
     // Display a listing of the resource.
     public function index()
     {
@@ -18,6 +28,7 @@ class StudentController extends Controller
             ->join('genders', 'students.gender', '=', 'genders.id')
             ->select('students.*', 'genders.description AS gender_d')
             ->paginate($perPage);
+            // dd($students);
         return view('students.index', compact('students'));
     }
 
